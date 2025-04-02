@@ -42,7 +42,7 @@
 }
 
 #chatbot-header {
-  background: #007bff;
+  background: #8f6a5b;
   color: white;
   padding: 10px;
   text-align: center;
@@ -370,7 +370,7 @@ body.menu-expanded button path {
   display: block;
 
   position: absolute;
-  top: 0;
+  top: 4;
   left: 0;
   z-index: -1;
 }
@@ -452,17 +452,69 @@ body.menu-expanded button path {
 
 /*=== ABOUT =================================*/
 #about {
-  text-align: left;
   background-color: var(--brand-beige);
+  text-align: center;
 }
 
-#about header h2 {
-  margin-bottom: 2.4rem;
+#about > header h1 {
+  font-size: 4rem;
+  margin-bottom: 4rem;
+  text-align: center;
 }
 
 #about .content p {
   margin-top: 2.4rem;
-  margin-bottom: 6rem;
+  line-height: 1.6;
+}
+
+@media (min-width: 1024px) {
+  #about .wrapper {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: center;
+    margin-bottom: 6rem;
+  }
+
+  #about .wrapper:nth-child(2) {
+    grid-template-areas: 'A B';
+  }
+
+  #about .wrapper:nth-child(3) {
+    grid-template-areas: 'B A';
+  }
+
+  #about .col-a {
+    text-align: right;
+    grid-area: A;
+  }
+
+  #about .col-b {
+    text-align: left;
+    grid-area: B;
+  }
+  #about .col-t {
+    text-align: left;
+    grid-area: A;
+  }
+
+  #about .col-ft {
+    grid-area: B;
+  }
+
+  #about .content p {
+    margin-bottom: 0;
+  }
+  
+}
+
+@media (max-width: 1023px) {
+  #about .col-b {
+    margin-top: 3rem;
+  }
+  
+  #about .content p {
+    margin-bottom: 3rem;
+  }
 }
 
 /*=== CONTACT =================================*/
@@ -504,12 +556,12 @@ footer .logo {
 }
 
 footer .logo svg {
-  width: 23.6rem;
-  height: 3.1rem;
+  width: 22.6rem;
+  height: 6.1rem;
 }
 
 footer .logo path {
-  fill: white;
+  fill: rgb(0, 0, 0);
 }
 
 footer p {
@@ -544,8 +596,6 @@ footer .social-links {
 
 /*=== RESPONSIVO =================================*/
 @media (min-width: 1024px) {
-
-  /*=== GERAL =================================*/
   body {
     overflow: auto;
   }
@@ -572,8 +622,6 @@ footer .social-links {
     line-height: 5.2rem;
   }
 
-  /*=== NAVIGATION =================================*/
-  /* reset */
   nav#navigation .wrapper * {
     margin: 0;
     padding: 0;
@@ -693,7 +741,6 @@ footer .social-links {
     border: none;
   }
 
-  /*=== HOME =================================*/
   #home::before {
     height: calc(96% - var(--nav-height));
   }
@@ -746,7 +793,6 @@ footer .social-links {
     width: 42rem;
   }
 
-  /*=== SERVICES =================================*/
   #services h2 {
     width: 47rem;
     margin-inline: auto;
@@ -763,23 +809,6 @@ footer .social-links {
     flex-grow: 1;
   }
 
-  /*=== ABOUT =================================*/
-  #about .wrapper {
-    grid-template-columns: 48rem 1fr;
-    grid-template-areas: 'B A';
-    gap: 6.7rem;
-  }
-
-  #about .col-a {
-    align-self: center;
-  }
-
-  #about .content p {
-    margin-bottom: 0;
-  }
-
-  /*=== CONTACT =================================*/
-
   #contact .wrapper {
     grid-template-columns: 1fr 57.5rem;
     grid-template-areas: 'A B';
@@ -789,7 +818,6 @@ footer .social-links {
     width: 40.4rem;
   }
 
-  /*=== FOOTER =================================*/
   footer {
     padding-block: 8rem;
   }
@@ -802,7 +830,6 @@ footer .social-links {
   footer .col-a {
     align-self: center;
   }
-
 
   footer .col-b {
     align-self: center;
@@ -931,7 +958,6 @@ footer .social-links {
   border: 1px solid #ef9a9a;
 }
 
-/* Responsive adjustments */
 @media (min-width: 800px) {
   .form-container {
       padding: 3rem;

@@ -70,7 +70,7 @@
 }
 :root {
   --hue: 370;
-  --primary-color:#000000 ;
+  --primary-color:#ffffff ;
   --headline: hsl(210, 11%, 15%);
   --paragraph: hsl(210, 9%, 31%);
 
@@ -519,6 +519,7 @@ body.menu-expanded button path {
 
 /*=== CONTACT =================================*/
 #contact {
+  
   text-align: left;
 }
 

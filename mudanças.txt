@@ -7,3 +7,4 @@ especialidade
 mudar o texto - Nat
 link do Canva - nat
 verificar email com dominio - Gabriel
+chat com direcionamento

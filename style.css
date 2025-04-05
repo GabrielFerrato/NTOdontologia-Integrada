@@ -70,7 +70,7 @@
 }
 :root {
   --hue: 370;
-  --primary-color:#ffffff ;
+  --primary-color: black ;
   --headline: hsl(210, 11%, 15%);
   --paragraph: hsl(210, 9%, 31%);
 
@@ -376,6 +376,7 @@ body.menu-expanded button path {
 }
 
 #home .button {
+  background-color: #1a7d4e;
   margin-inline: auto;
 }
 
@@ -519,7 +520,7 @@ body.menu-expanded button path {
 
 /*=== CONTACT =================================*/
 #contact {
-  
+ 
   text-align: left;
 }
 
@@ -581,6 +582,7 @@ footer .social-links {
   position: fixed;
   bottom: 1rem;
   right: 2.5rem;
+  
 
   opacity: 0;
   visibility: hidden;

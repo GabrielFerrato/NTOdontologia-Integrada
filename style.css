@@ -370,7 +370,7 @@ body.menu-expanded button path {
   display: block;
 
   position: absolute;
-  top: 4;
+  top: 0;
   left: 0;
   z-index: -1;
 }
@@ -400,16 +400,16 @@ body.menu-expanded button path {
   width: 100%;
   padding-block: 4rem;
   margin-inline: auto;
-
+  margin-top: 45rem; /* Adicionado para descer o bloco */
   background-color: var(--brand-beige);
   border: 1px solid var(--brand-light);
   border-radius: 0.6rem;
-
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 6rem;
 }
+
 
 #home .stat h3 {
   font-size: 4.8rem;
@@ -544,7 +544,7 @@ body.menu-expanded button path {
 
 /*=== FOOTER =================================*/
 footer {
-  background-color: var(--primary-color);
+  background-color: #c39b7f;
   padding-block: 6rem;
 
   text-align: left;

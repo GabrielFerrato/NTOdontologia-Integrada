@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Teste TwentyTwenty</title>
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/mhayes-twentytwenty/1.0.0/css/twentytwenty.min.css"
+/>
+</head>
+<body>
+  <div class="twentytwenty-container">
+       <img src="./assets/antes.png">
+    <img src="./assets/depois.png">
+  </div>
+
+ <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.event.move/2.0.0/jquery.event.move.min.js"></script>
+<script
+  src="https://cdnjs.cloudflare.com/ajax/libs/mhayes-twentytwenty/1.0.0/js/jquery.twentytwenty.min.js"
+></script>
+<script>
+  $(window).on('load', function(){
+    console.log('agora:', typeof $.fn.twentytwenty); // deve ser "function"
+    $('.twentytwenty-container').twentytwenty();
+  });
+</script>
+</body>
+</html>

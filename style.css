@@ -393,14 +393,14 @@ body.menu-expanded button path {
   width: 26.4rem;
   display: block;
   margin-inline: auto;
-  object-position: 0 2rem;
+  
 }
 
 #home .stats {
   width: 100%;
   padding-block: 4rem;
   margin-inline: auto;
-  margin-top: 45rem; /* Adicionado para descer o bloco */
+  margin-top: 1rem; /* Adicionado para descer o bloco */
   background-color: var(--brand-beige);
   border: 1px solid var(--brand-light);
   border-radius: 0.6rem;
@@ -617,7 +617,8 @@ footer .social-links {
   }
 
   section {
-    padding-block: 16rem;
+    padding-top: 5rem;
+    padding-bottom: 0;
   }
 
   section header h2 {

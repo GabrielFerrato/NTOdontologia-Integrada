@@ -2,17 +2,30 @@ window.addEventListener('scroll', onScroll)
 
 onScroll()
 function onScroll() {
-  showNavOnScroll()
-  showBackToTopButtonOnScroll()
+  // Essas duas chamadas provavelmente já estão corrigidas
+  showNavOnScroll();
+  showBackToTopButtonOnScroll();
 
-  activateMenuAtCurrentSection(home)
-  activateMenuAtCurrentSection(services)
-  activateMenuAtCurrentSection(about)
-  activateMenuAtCurrentSection(contact)
+  // A correção principal está aqui.
+  // Agora, passamos a seção correta para a função.
+  activateMenuAtCurrentSection(document.getElementById('home'));
+  activateMenuAtCurrentSection(document.getElementById('services'));
+  activateMenuAtCurrentSection(document.getElementById('about'));
+  activateMenuAtCurrentSection(document.getElementById('contact'));
 }
 
 function activateMenuAtCurrentSection(section) {
-  const targetLine = scrollY + innerHeight / 2
+  
+  const sectionId = section.getAttribute('id');
+
+  const targetLine = document.querySelector(`.menu a[href*=${sectionId}]`);
+
+  if (targetLine) {
+    targetLine.classList.remove('active'); // Garanta que remove de todos primeiro
+  }
+
+  // ... o resto da sua lógica para adicionar a classe 'active'
+}
 
   // verificar se a seção passou da linha
   // quais dados vou precisar?
@@ -36,21 +49,29 @@ function activateMenuAtCurrentSection(section) {
   if (sectionBoundaries) {
     menuElement.classList.add('active')
   }
-}
+
 
 function showNavOnScroll() {
-  if (scrollY > 0) {
-    navigation.classList.add('scroll')
-  } else {
-    navigation.classList.remove('scroll')
+  const navigation = document.getElementById('navigation'); // Garante que a variável está aqui
+
+  if (navigation) { // <-- A CORREÇÃO É ESTA LINHA
+    if (scrollY > 0) {
+      navigation.classList.add('scroll');
+    } else {
+      navigation.classList.remove('scroll');
+    }
   }
 }
 
 function showBackToTopButtonOnScroll() {
-  if (scrollY > 550) {
-    backToTopButton.classList.add('show')
-  } else {
-    backToTopButton.classList.remove('show')
+  const backToTopButton = document.getElementById('backToTopButton'); // Garante que o elemento seja encontrado
+
+  if (backToTopButton) { // <-- ESSA VERIFICAÇÃO RESOLVE O ERRO
+    if (scrollY > 550) {
+      backToTopButton.classList.add('show');
+    } else {
+      backToTopButton.classList.remove('show');
+    }
   }
 }
 

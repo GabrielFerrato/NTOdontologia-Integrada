@@ -95,7 +95,7 @@ html {
 html,
 body {
   width: 100%;
-  height: 100%;
+ 
 }
 
 body {
@@ -104,7 +104,7 @@ body {
 
   text-align: center;
 
-  overflow: overlay;
+  overflow: hidden;
 
   background-color: var(--bg-light);
 }
@@ -211,7 +211,7 @@ section .content p {
 
 button.open-menu path[stroke*='#00856F'],
 #contact li path {
-  stroke: var(--primary-color);
+  stroke: var(--brand-beige);
 }
 
 body.menu-expanded #navigation .logo path,
@@ -289,7 +289,7 @@ body.menu-expanded .close-menu {
 body.menu-expanded .menu {
   top: 0;
   left: 0;
-  background: var(--primary-color);
+  background: var(--brand-light);
 
   width: 100vw;
   height: 100vh;
@@ -326,7 +326,7 @@ body.menu-expanded .menu {
   text-transform: uppercase;
   text-decoration: none;
 
-  color: var(--primary-color);
+  color: var(--brand-beige);
 
   display: inline-block;
   padding: 16px 32px;
@@ -360,10 +360,11 @@ body.menu-expanded button path {
 #home {
   padding-block: 0;
   padding-top: calc(4.1rem + var(--nav-height));
+  background-color: var(--brand-light); /* COR DE FUNDO APLICADA AQUI */
 }
 
 #home::before {
-  content: '';
+  content: none;
   width: 100%;
   height: calc(76% + var(--nav-height));
   background-color: var(--brand-light);
@@ -974,4 +975,67 @@ footer .social-links {
   .form-container button {
       font-size: 1.8rem;
   }
+  /* === ESTILOS DO POP-UP DE CONFIRMAÇÃO === */
+
+#popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* Fundo escuro semi-transparente */
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 1000; /* Garante que fique por cima de tudo */
+  
+  /* Efeitos para transição suave */
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s;
+}
+
+/* Classe para mostrar o pop-up */
+#popup-overlay.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+#popup-box {
+  background: white;
+  padding: 30px 40px;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  text-align: center;
+  position: relative;
+  width: 90%;
+  max-width: 400px; /* Largura máxima do pop-up */
+
+  /* Animação de entrada */
+  transform: scale(0.9);
+  transition: transform 0.3s;
+}
+
+#popup-overlay.visible #popup-box {
+  transform: scale(1);
+}
+
+#popup-message {
+  font-size: 1.8rem;
+  color: #333;
+  margin: 1rem 0 0 0;
+}
+
+#popup-close-btn {
+  position: absolute;
+  top: 5px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 2.5rem;
+  color: #aaa;
+  cursor: pointer;
+}
 }

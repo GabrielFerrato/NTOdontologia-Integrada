@@ -208,7 +208,7 @@ section .content p {
 
 button.open-menu path[stroke*='#00856F'],
 #contact li path {
-  stroke: var(--brand-beige);
+  stroke: var(--brand-light);
 }
 
 body.menu-expanded #navigation .logo path,
@@ -880,7 +880,8 @@ footer .social-links {
 
 .form-container input[type="text"],
 .form-container input[type="tel"],
-.form-container input[type="email"] {
+.form-container input[type="email"], 
+.form-container textarea[type="description"] {
   width: 100%;
   padding: 1.2rem 1.6rem;
   margin-bottom: 1.6rem;

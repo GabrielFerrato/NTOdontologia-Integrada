@@ -18,40 +18,44 @@
 
 <body>
 
-  <div id="chatbot-icon">💬</div>
-  <div id="chatbot-container">
-    <div id="chatbot-header">Atendimento</div>
-    <div id="chatbot-questions"></div>
-    <div id="chatbot-messages"></div>
-  </div>
+<div id="chatbot-icon">💬</div>
+<div id="chatbot-container">
+  <div id="chatbot-header">Atendimento</div>
+  <div id="chatbot-questions"></div>
+  <div id="chatbot-messages"></div>
+</div>
 
+<script>
+  const perguntasRespostas = {
+    "Gostaria de marcar uma avaliação": "Que prazer te receber aqui, nos envie uma mensagem no WhatsApp (61) 9 9973-4344 que nos prontificamos a marcar seu horário!",
+    "Quais os horários de atendimento?": "Horários de atendimento: segunda a sexta 8 as 20h",
+    "Tem avaliação on-line?": "Temos sim, nos mande mensagem que marcaremos uma avaliação completa para você!"
+  };
 
-  <script>
-    const perguntasRespostas = {
-      "Gostaria de marcar uma avaliação": "Que prazer te receber aqui, nos envie uma mensagem no WhatsApp (61) 9 9973-4344 que nos prontificamos a marcar seu horário!",
-      "Quais os horários de atendimento?": "Horários de atendimento: segunda a sexta 8 as 20h",
-      "Tem avaliação on-line?": "Temos sim, nos mande mensagem que marcaremos uma avaliação completa  para você!"
-    };
+  document.getElementById("chatbot-icon").addEventListener("click", function () {
+    const chatbox = document.getElementById("chatbot-container");
+    chatbox.style.display = chatbox.style.display === "none" ? "flex" : "none";
+  });
 
-    document.getElementById("chatbot-icon").addEventListener("click", function () {
-      const chatbox = document.getElementById("chatbot-container");
-      chatbox.style.display = chatbox.style.display === "none" ? "flex" : "none";
+  const questionsContainer = document.getElementById("chatbot-questions");
+  for (let pergunta in perguntasRespostas) {
+    let questionElement = document.createElement("div");
+    questionElement.classList.add("question");
+    questionElement.innerText = pergunta;
+    questionElement.addEventListener("click", function () {
+      const messages = document.getElementById("chatbot-messages");
+      
+      // Limpa as mensagens anteriores
+      messages.innerHTML = ''; 
+      
+      // Adiciona as novas mensagens
+      messages.innerHTML += `<p><strong>Você:</strong> ${pergunta}</p>`;
+      messages.innerHTML += `<p><strong>Bot:</strong> ${perguntasRespostas[pergunta]}</p>`;
+      messages.scrollTop = messages.scrollHeight;
     });
-
-    const questionsContainer = document.getElementById("chatbot-questions");
-    for (let pergunta in perguntasRespostas) {
-      let questionElement = document.createElement("div");
-      questionElement.classList.add("question");
-      questionElement.innerText = pergunta;
-      questionElement.addEventListener("click", function () {
-        const messages = document.getElementById("chatbot-messages");
-        messages.innerHTML += `<p><strong>Você:</strong> ${pergunta}</p>`;
-        messages.innerHTML += `<p><strong>Bot:</strong> ${perguntasRespostas[pergunta]}</p>`;
-        messages.scrollTop = messages.scrollHeight;
-      });
-      questionsContainer.appendChild(questionElement);
-    }
-  </script>
+    questionsContainer.appendChild(questionElement);
+  }
+</script>
   <nav id="navigation">
     <div class="wrapper">
       <a class="logo" href="index.html#home">
@@ -125,17 +129,17 @@
         <div class="stats">
           <div class="stat">
             <h3>+3.500</h3>
-            <p>Pacientes atendidos</p>
+            <p>Pacientes satisfeitos</p>
           </div>
 
           <div class="stat">
-            <h3>+15</h3>
-            <p>Especialistas disponíveis</p>
+            <h3>+1.000</h3>
+            <p>Restaurações feitas</p>
           </div>
 
           <div class="stat">
-            <h3>+10</h3>
-            <p>Anos no mercado</p>
+            <h3>+80</h3>
+            <p>Reabilitações estéticas</p>
           </div>
         </div>
       </div>
@@ -297,10 +301,7 @@
                     </g>
                   </svg></div>
                 <div style="padding-top: 8px;">
-                  <div
-                    style=" color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;">
-                    Ver essa foto no Instagram</div>
-                </div>
+                 
                 <div style="padding: 12.5% 0;"></div>
                 <div style="display: flex; flex-direction: row; margin-bottom: 14px; align-items: center;">
                   <div>
